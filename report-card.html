@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Report Card Generator</title>
+
+<style>
+body{
+    font-family: "Times New Roman";
+    background:#eee;
+    padding:20px;
+}
+.container{
+    max-width:900px;
+    background:white;
+    margin:auto;
+    padding:20px;
+}
+h1{
+    text-align:center;
+}
+input{
+    padding:6px;
+    margin:5px;
+    width:200px;
+}
+button{
+    padding:10px 20px;
+    background:#2c3e50;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+table,th,td{
+    border:1px solid black;
+}
+th,td{
+    padding:8px;
+    text-align:center;
+}
+.photo{
+    width:100px;
+    height:120px;
+    border:1px solid black;
+    object-fit:cover;
+}
+@media print{
+    button{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>ABC PUBLIC SCHOOL</h1>
+<p style="text-align:center;">Annual Report Card</p>
+
+<h3>Student Details</h3>
+Name: <input id="name">
+Roll: <input id="roll">
+Class: <input id="class">
+<br><br>
+Photo: <input type="file" id="photo">
+
+<h3>Marks Entry</h3>
+
+<table>
+<tr><th>Subject</th><th>Marks (100)</th></tr>
+<tr><td>English</td><td><input id="m1"></td></tr>
+<tr><td>Hindi</td><td><input id="m2"></td></tr>
+<tr><td>Math</td><td><input id="m3"></td></tr>
+<tr><td>Science</td><td><input id="m4"></td></tr>
+<tr><td>Social Science</td><td><input id="m5"></td></tr>
+</table>
+
+<br>
+<button onclick="generate()">Generate Report Card</button>
+
+<hr>
+
+<h3>Final Marksheet</h3>
+
+<img id="showPhoto" class="photo">
+
+<table>
+<tr><th>Total Marks</th><th>Percentage</th><th>Grade</th><th>Result</th></tr>
+<tr>
+<td id="total"></td>
+<td id="percent"></td>
+<td id="grade"></td>
+<td id="result"></td>
+</tr>
+</table>
+
+</div>
+
+<script>
+function generate(){
+    let m1=+document.getElementById("m1").value;
+    let m2=+document.getElementById("m2").value;
+    let m3=+document.getElementById("m3").value;
+    let m4=+document.getElementById("m4").value;
+    let m5=+document.getElementById("m5").value;
+
+    let total=m1+m2+m3+m4+m5;
+    let percent=(total/500)*100;
+
+    document.getElementById("total").innerText=total;
+    document.getElementById("percent").innerText=percent.toFixed(2)+"%";
+
+    let grade="F", result="Fail";
+    if(percent>=90){grade="A+"; result="Pass";}
+    else if(percent>=75){grade="A"; result="Pass";}
+    else if(percent>=60){grade="B"; result="Pass";}
+    else if(percent>=45){grade="C"; result="Pass";}
+
+    document.getElementById("grade").innerText=grade;
+    document.getElementById("result").innerText=result;
+
+    let file=document.getElementById("photo").files[0];
+    if(file){
+        let reader=new FileReader();
+        reader.onload=function(e){
+            document.getElementById("showPhoto").src=e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+
+</body>
+</html>
