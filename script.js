@@ -1,27 +1,29 @@
-function generate() {
-  const name = document.getElementById("name").value;
-  const cls = document.getElementById("class").value;
-  const eng = +document.getElementById("eng").value || 0;
-  const hin = +document.getElementById("hin").value || 0;
-  const math = +document.getElementById("math").value || 0;
+// 1. Welcome Message (Jab koi website khole)
+window.onload = function() {
+    console.log("Welcome to Adarsh Public School!");
+};
 
-  const total = eng + hin + math;
-
-  const result = `
-    <h2>The International School</h2>
-    <p><b>Name:</b> ${name}</p>
-    <p><b>Class:</b> ${cls}</p>
-    <table border="1" width="100%">
-      <tr><th>Subject</th><th>Marks</th></tr>
-      <tr><td>English</td><td>${eng}</td></tr>
-      <tr><td>Hindi</td><td>${hin}</td></tr>
-      <tr><td>Maths</td><td>${math}</td></tr>
-      <tr><th>Total</th><th>${total}</th></tr>
-    </table>
-  `;
-
-  const div = document.createElement("div");
-  div.innerHTML = result;
-
-  html2pdf().from(div).save(`${name}_marksheet.pdf`);
+// 2. Simple Image Slider Logic (Agar aap images rotate karna chahte hain)
+let currentSlide = 0;
+function showSlides() {
+    const slides = document.querySelectorAll(".hero");
+    // Yahan aap images change karne ka logic likh sakte hain
 }
+
+// 3. Mobile Menu Toggle (Chote phones ke liye menu button)
+function toggleMenu() {
+    const nav = document.querySelector('nav');
+    if (nav.style.display === "block") {
+        nav.style.display = "none";
+    } else {
+        nav.style.display = "block";
+    }
+}
+
+// 4. Admission Alert (Important Announcement)
+function showAnnouncement() {
+    alert("New Admissions are Open for Session 2026-27!");
+}
+
+// Is function ko aap kisi button par click karke chala sakte hain
+// Example: <button onclick="showAnnouncement()">Check Admissions</button>
