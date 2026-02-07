@@ -1,176 +1,74 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>The Lalit International School & Online Learning</title>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lalit International School | Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS Variables for easy color management */
-        :root {
-            --saffron: #FF9933;
-            --white: #FFFFFF;
-            --green: #138808;
-            --blue: #000080;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: #333; overflow-x: hidden; }
-
-        /* 1. HEADER (Saffron Dominant) */
-        header { 
-            background: var(--saffron); 
-            color: white; 
-            padding: 40px 20px; 
-            text-align: center;
-            border-bottom: 4px solid var(--white);
-        }
-        header h1 { font-size: 2.5rem; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-        header p { font-style: italic; opacity: 0.9; }
-
-        /* 2. NAVIGATION (Navy Blue - Sabse Kam) */
-        nav { 
-            background: var(--blue); 
-            padding: 12px; 
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: var(--saffron); }
-
-        /* 3. HERO SECTION (High Saffron) */
-        .hero { 
-            background: linear-gradient(rgba(255, 153, 51, 0.8), rgba(255, 153, 51, 0.9)), url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 450px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
-            text-align: center;
-            padding: 20px;
-        }
-        .hero-content h2 { font-size: 3rem; margin-bottom: 15px; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 25px; }
-        
-        /* 4. NOTICE BOARD (Scrolling) */
-        .notice-bar { background: #eee; padding: 10px; border-bottom: 2px solid var(--green); }
-        .notice-bar marquee { color: var(--blue); font-weight: bold; }
-
-        /* 5. MAIN CONTENT (White & Green Accents) */
-        .container { padding: 60px 10%; }
-        .section-title { text-align: center; color: var(--green); margin-bottom: 40px; font-size: 2rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            text-align: center; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border-bottom: 5px solid var(--green);
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-10px); border-bottom-color: var(--saffron); }
-        .card i { font-size: 40px; color: var(--saffron); margin-bottom: 15px; }
-
-        /* 6. BUTTONS */
-        .btn { 
-            display: inline-block;
-            padding: 12px 30px; 
-            background: var(--green); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn:hover { background: var(--blue); transform: scale(1.05); }
-
-        /* 7. FOOTER (Green) */
-        footer { 
-            background: var(--green); 
-            color: white; 
-            text-align: center; 
-            padding: 40px 20px; 
-            margin-top: 50px;
-            border-top: 8px solid var(--saffron);
-        }
-        .footer-info { margin-bottom: 20px; }
-    </style>
 </head>
 <body>
 
 <header>
-    <h1>THE LALIT INTERNATIONAL SCHOOL</h1>
-    <p>Empowering Minds, Enriching Lives</p>
+    <div class="logo">The Lalit</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">Admissions</a>
+        <a href="#">Student Portal</a>
+        <a href="#">Faculty Portal</a>
+        <a href="#">Jobs</a>
+        <a href="#">Contact</a>
+    </nav>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#about.html">About Us</a>
-    <a href="#facilities">Facilities</a>
-    <a href="#admissions">Admissions</a>
-    <a href="#contact.html">Contact</a>
-</nav>
-
-<div class="notice-bar">
-    <marquee>📢 Admissions Open for Session 2026-27 | Special Scholarship for Meritorious Students | Contact: +91 98765 43210</marquee>
-</div>
-
 <section class="hero">
-    <div class="hero-content">
-        <h2>Welcome to Excellence</h2>
-        <p>Aapke bachon ke ujjwal bhavishya ki shuruat yahan se hoti hai.</p>
-        <a href="#" class="btn" onclick="showAlert()">Apply Now</a>
+    <h1>The Lalit International School</h1>
+    <p>Free Online Courses • All Subjects • All Classes</p>
+    <div class="hero-buttons">
+        <a href="#" class="btn">Get Admission</a>
+        <a href="#" class="btn-outline">Free Courses</a>
     </div>
 </section>
 
-<div class="container" id="about">
-    <h2 class="section-title">Humaari Suvidhayein</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Modern Classrooms</h3>
-            <p>Smart boards aur AC rooms ke saath behtar padhai ka mahaul.</p>
-        </div>
-        <div class="card">
-            <h3>Science & IT Labs</h3>
-            <p>Practical gyan ke liye advance computers aur latest equipment.</p>
-        </div>
-        <div class="card" style="border-bottom-color: var(--saffron);">
-            <h3>Sports Academy</h3>
-            <p>Professional coaching for Cricket, Football, and Yoga.</p>
-        </div>
-    </div>
-</div>
+<section class="services">
+    <h2>Our Facilities</h2>
 
-<div class="container" style="background: #fff8f0; text-align: center;">
-    <h2 style="color: var(--saffron);">Principal's Message</h2>
-    <p style="max-width: 800px; margin: 20px auto; font-style: italic;">"The Lalit International School mein hum sirf kitabi gyan nahi, balki sanskar aur technology dono ka mel sikhate hain."</p>
-</div>
+    <div class="grid">
+        <div class="card">📘 Online Free Courses</div>
+        <div class="card">🎓 All Classes & Subjects</div>
+        <div class="card">🧑‍🎓 Student Portal</div>
+        <div class="card">👩‍🏫 Faculty Portal</div>
+        <div class="card">📝 Apply for Class</div>
+        <div class="card">💼 Apply for Jobs</div>
+        <div class="card">📢 Vacancies</div>
+        <div class="card">📄 See Results</div>
+        <div class="card">💳 Submit Payment</div>
+        <div class="card">🧾 Download Bill</div>
+        <div class="card">👤 Get Your Profile</div>
+        <div class="card">🔐 Login / Sign Up</div>
+    </div>
+</section>
+
+<section class="about">
+    <h2>About Us</h2>
+    <p>
+        The Lalit International School is a modern educational platform providing
+        quality education through both school and online learning systems.
+        Our mission is to make education free, accessible, and powerful for every student.
+    </p>
+</section>
+
+<section class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 WhatsApp: <strong>8789028252</strong></p>
+    <a class="whatsapp" href="https://wa.me/918789028252" target="_blank">
+        Chat on WhatsApp
+    </a>
+</section>
 
 <footer>
-    <div class="footer-info">
-        <h3>Contact Us</h3>
-        <p>Main Street, Education Hub, New Delhi - 110001</p>
-        <p>Email: info@lalitschool.com | Phone: +91 123 456 7890</p>
-    </div>
-    <hr style="margin: 20px auto; width: 50%; opacity: 0.3;">
-    <p>&copy; 2026 The Lalit International School. Sabhi adhikaar surakshit hain.</p>
+    <p>© 2026 The Lalit International School | All Rights Reserved</p>
 </footer>
-
-<script>
-    function showAlert() {
-        alert("Thank you for your interest! Admission form open ho raha hai...");
-    }
-    
-    // Console message for developers
-    console.log("The Lalit International School Website Loaded Successfully!");
-</script>
 
 </body>
 </html>
