@@ -1,98 +1,128 @@
+:root {
+  --saffron: #ff8c1a;
+  --green: #138808;
+  --blue: #002855;
+  --white: #ffffff;
+}
+
+/* BASE */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--saffron);
+  color: var(--blue);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background: #003366;
-    color: white;
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background: var(--saffron);
+  border-bottom: 5px solid var(--green);
 }
 
-header .logo {
-    font-size: 26px;
-    font-weight: bold;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.brand img {
+  height: 48px;
 }
 
 nav a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
+  margin-left: 18px;
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 600;
 }
 
+/* HERO */
 .hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(to right, #004aad, #0077ff);
-    color: white;
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(
+    to bottom,
+    var(--saffron),
+    #ffb347
+  );
 }
 
-.hero-buttons {
-    margin-top: 20px;
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 10px;
 }
 
-.btn, .btn-outline {
-    padding: 12px 25px;
-    margin: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+.hero p {
+  font-size: 18px;
 }
 
-.btn {
-    background: white;
-    color: #004aad;
+/* BUTTONS */
+.hero-buttons .btn {
+  padding: 14px 30px;
+  border-radius: 6px;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.btn-outline {
-    border: 2px solid white;
-    color: white;
+.primary {
+  background: var(--green);
+  color: var(--white);
 }
 
-.services {
-    padding: 50px 20px;
-    text-align: center;
+.secondary {
+  border: 2px solid var(--green);
+  color: var(--green);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    margin-top: 30px;
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+  padding: 50px 30px;
+  background: var(--saffron);
 }
 
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    font-weight: bold;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  font-weight: bold;
+  border-top: 6px solid var(--green);
 }
 
+/* ABOUT & CONTACT */
 .about, .contact {
-    padding: 40px 20px;
-    background: white;
-    margin: 20px;
-    border-radius: 10px;
+  background: #fff3e0;
+  margin: 35px;
+  padding: 40px;
+  border-left: 8px solid var(--green);
+  border-radius: 12px;
 }
 
+/* WHATSAPP */
 .whatsapp {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 20px;
-    background: #25d366;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+  display: inline-block;
+  margin-top: 15px;
+  padding: 14px 22px;
+  background: var(--green);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
 }
 
+/* FOOTER */
 footer {
-    background: #003366;
-    color: white;
-    text-align: center;
-    padding: 15px;
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  padding: 18px;
 }
