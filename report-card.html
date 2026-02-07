@@ -1,137 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>School Report Card Generator</title>
+<title>School Report Card</title>
 
 <style>
-body{
-    font-family: "Times New Roman";
-    background:#eee;
-    padding:20px;
+@page{
+    size:A4;
+    margin:25mm;
 }
-.container{
-    max-width:900px;
+body{
+    font-family:"Times New Roman", serif;
+    background:#ccc;
+}
+.page{
+    width:210mm;
+    min-height:297mm;
     background:white;
     margin:auto;
-    padding:20px;
+    padding:20mm;
 }
-h1{
+.header{
     text-align:center;
 }
-input{
-    padding:6px;
-    margin:5px;
-    width:200px;
+.header h1{
+    margin:0;
+    font-size:22px;
+    letter-spacing:1px;
 }
-button{
-    padding:10px 20px;
-    background:#2c3e50;
-    color:white;
-    border:none;
-    cursor:pointer;
-}
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-table,th,td{
-    border:1px solid black;
-}
-th,td{
-    padding:8px;
-    text-align:center;
+.header p{
+    margin:2px;
+    font-size:14px;
 }
 .photo{
-    width:100px;
-    height:120px;
-    border:1px solid black;
-    object-fit:cover;
+    width:35mm;
+    height:45mm;
+    border:1px solid #000;
+    float:right;
+}
+.section-title{
+    margin-top:20px;
+    font-weight:bold;
+    font-size:15px;
+}
+.info-table, .marks-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+.info-table td{
+    padding:5px;
+}
+.marks-table th, .marks-table td{
+    border:1px solid #000;
+    padding:6px;
+    font-size:14px;
+}
+.footer{
+    margin-top:40px;
+    display:flex;
+    justify-content:space-between;
+}
+.sign{
+    text-align:center;
+    width:30%;
+}
+.sign div{
+    border-top:1px solid black;
+    margin-top:50px;
+}
+input{
+    border:none;
+    border-bottom:1px solid black;
+    font-family:"Times New Roman";
+}
+button{
+    margin-top:20px;
 }
 @media print{
+    body{background:white;}
     button{display:none;}
+    input{border:none;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="page">
 
+<div class="header">
 <h1>ABC PUBLIC SCHOOL</h1>
-<p style="text-align:center;">Annual Report Card</p>
+<p>(Affiliated to CBSE, New Delhi)</p>
+<p>Annual Examination Report Card</p>
+</div>
 
-<h3>Student Details</h3>
-Name: <input id="name">
-Roll: <input id="roll">
-Class: <input id="class">
-<br><br>
-Photo: <input type="file" id="photo">
+<img id="photoShow" class="photo">
 
-<h3>Marks Entry</h3>
+<table class="info-table">
+<tr>
+<td>Student Name:</td><td><input id="name"></td>
+<td>Roll No:</td><td><input id="roll"></td>
+</tr>
+<tr>
+<td>Class:</td><td><input id="class"></td>
+<td>Session:</td><td><input value="2025-26"></td>
+</tr>
+</table>
 
-<table>
-<tr><th>Subject</th><th>Marks (100)</th></tr>
-<tr><td>English</td><td><input id="m1"></td></tr>
-<tr><td>Hindi</td><td><input id="m2"></td></tr>
-<tr><td>Math</td><td><input id="m3"></td></tr>
-<tr><td>Science</td><td><input id="m4"></td></tr>
-<tr><td>Social Science</td><td><input id="m5"></td></tr>
+<div class="section-title">Scholastic Areas</div>
+
+<table class="marks-table">
+<tr>
+<th>Subject</th><th>Max Marks</th><th>Marks Obtained</th>
+</tr>
+<tr><td>English</td><td>100</td><td><input id="m1"></td></tr>
+<tr><td>Hindi</td><td>100</td><td><input id="m2"></td></tr>
+<tr><td>Mathematics</td><td>100</td><td><input id="m3"></td></tr>
+<tr><td>Science</td><td>100</td><td><input id="m4"></td></tr>
+<tr><td>Social Science</td><td>100</td><td><input id="m5"></td></tr>
 </table>
 
 <br>
-<button onclick="generate()">Generate Report Card</button>
 
-<hr>
+Total: <span id="total"></span><br>
+Percentage: <span id="percent"></span><br>
+Grade: <span id="grade"></span>
 
-<h3>Final Marksheet</h3>
+<br><br>
 
-<img id="showPhoto" class="photo">
+<div class="footer">
+<div class="sign">
+<div></div>
+Class Teacher
+</div>
+<div class="sign">
+<div></div>
+Principal
+</div>
+<div class="sign">
+<div></div>
+School Seal
+</div>
+</div>
 
-<table>
-<tr><th>Total Marks</th><th>Percentage</th><th>Grade</th><th>Result</th></tr>
-<tr>
-<td id="total"></td>
-<td id="percent"></td>
-<td id="grade"></td>
-<td id="result"></td>
-</tr>
-</table>
+<button onclick="generate()">Generate</button>
 
 </div>
 
 <script>
 function generate(){
-    let m1=+document.getElementById("m1").value;
-    let m2=+document.getElementById("m2").value;
-    let m3=+document.getElementById("m3").value;
-    let m4=+document.getElementById("m4").value;
-    let m5=+document.getElementById("m5").value;
+let marks=[
++ m1.value,+ m2.value,+ m3.value,+ m4.value,+ m5.value
+];
+let total=marks.reduce((a,b)=>a+b,0);
+let percent=(total/500)*100;
 
-    let total=m1+m2+m3+m4+m5;
-    let percent=(total/500)*100;
+document.getElementById("total").innerText=total;
+document.getElementById("percent").innerText=percent.toFixed(2)+"%";
 
-    document.getElementById("total").innerText=total;
-    document.getElementById("percent").innerText=percent.toFixed(2)+"%";
+let grade="F";
+if(percent>=90) grade="A+";
+else if(percent>=75) grade="A";
+else if(percent>=60) grade="B";
+else if(percent>=45) grade="C";
 
-    let grade="F", result="Fail";
-    if(percent>=90){grade="A+"; result="Pass";}
-    else if(percent>=75){grade="A"; result="Pass";}
-    else if(percent>=60){grade="B"; result="Pass";}
-    else if(percent>=45){grade="C"; result="Pass";}
-
-    document.getElementById("grade").innerText=grade;
-    document.getElementById("result").innerText=result;
-
-    let file=document.getElementById("photo").files[0];
-    if(file){
-        let reader=new FileReader();
-        reader.onload=function(e){
-            document.getElementById("showPhoto").src=e.target.result;
-        }
-        reader.readAsDataURL(file);
-    }
+document.getElementById("grade").innerText=grade;
 }
+
+document.getElementById("photoShow").src="";
 </script>
 
 </body>
