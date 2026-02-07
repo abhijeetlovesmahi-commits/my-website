@@ -1,76 +1,98 @@
-/* Custom Tiranga Hierarchy */
-:root {
-    --saffron: #FF9933;
-    --white: #FFFFFF;
-    --green: #138808;
-    --blue: #000080;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
 }
 
-body { 
-    font-family: 'Poppins', sans-serif; 
-    margin: 0; padding: 0; 
-    background-color: var(--white); /* Middle dominant */
-}
-
-/* 1. Sabse zyada Saffron (Header + Banner) */
-header { 
-    background: var(--saffron); 
-    color: white; 
-    padding: 30px 0; 
-    text-align: center;
-    border-bottom: 3px solid var(--white);
-}
-
-.hero { 
-    background: var(--saffron); /* Image ki jagah solid saffron ya light gradient */
-    background: linear-gradient(135deg, #FF9933 0%, #ffb366 100%);
-    color: white;
-    height: 350px;
+header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    padding: 15px 40px;
+    background: #003366;
+    color: white;
 }
 
-/* 2. Navigation - Navy Blue (Sabse Kam) */
-nav { 
-    background: var(--blue); 
-    padding: 12px; 
+header .logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #004aad, #0077ff);
+    color: white;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn, .btn-outline {
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn {
+    background: white;
+    color: #004aad;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+}
+
+.services {
+    padding: 50px 20px;
     text-align: center;
 }
-nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 14px; }
 
-/* 3. Content Area - White */
-.container { 
-    background: var(--white); 
-    padding: 50px 10%; 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
 }
 
-/* 4. Cards & Accents - Green */
-.card { 
-    border: 2px solid var(--green); 
+.card {
     background: white;
-    border-radius: 15px;
     padding: 20px;
-    transition: 0.3s;
-}
-.card h3 { color: var(--green); }
-
-.btn-apply {
-    background: var(--green); /* Button ko green rakhte hain contrast ke liye */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     font-weight: bold;
-    cursor: pointer;
 }
 
-/* 5. Footer - Green */
-footer { 
-    background: var(--green); 
-    color: white; 
-    text-align: center; 
-    padding: 30px; 
-    border-top: 10px solid var(--saffron); /* Saffron touch in footer too */
+.about, .contact {
+    padding: 40px 20px;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.whatsapp {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
 }
