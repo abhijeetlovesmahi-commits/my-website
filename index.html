@@ -1,72 +1,37 @@
-<a href="report-card.html">
-<button>Open Report Card Generator</button>
-</a><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Abhijeet | Personal Website</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f5f7fa;
-    text-align:center;
-}
-header{
-    background:#1e3c72;
-    color:white;
-    padding:40px 20px;
-}
-section{
-    padding:30px;
-}
-.card{
-    background:white;
-    margin:20px auto;
-    max-width:600px;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-footer{
-    background:#1e3c72;
-    color:white;
-    padding:15px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Marksheet Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Abhijeet Aryan</h1>
-    <p>English Teacher | Learner | Creator</p>
-</header>
+<h2>Student Marksheet Generator</h2>
 
-<section>
-    <div class="card">
-        <h2>About Me</h2>
-        <p>Main ek English Teacher hoon aur apni pehli website bana raha hoon using GitHub Pages.</p>
-    </div>
+<form id="marksheetForm">
+  <label>Student Name</label>
+  <input type="text" id="name" required>
 
-    <div class="card">
-        <h2>Skills</h2>
-        <p>✔ English Teaching<br>✔ Content Writing<br>✔ Basic Web Design</p>
-    </div>
+  <label>Class</label>
+  <input type="text" id="class">
 
-    <div class="card">
-        <h2>Contact</h2>
-        <p>Email: example@email.com</p>
-    </div>
-</section>
+  <label>Student Photo</label>
+  <input type="file" id="photo" accept="image/*">
 
-<footer>
-    <p>© 2026 Abhijeet</p>
-</footer>
+  <label>English</label>
+  <input type="number" id="eng" max="100">
 
+  <label>Hindi</label>
+  <input type="number" id="hin" max="100">
+
+  <label>Maths</label>
+  <input type="number" id="math" max="100">
+
+  <button type="button" onclick="generate()">Generate PDF</button>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-<a href="report-card.html">
-<button>Open Report Card Generator</button>
-</a>
