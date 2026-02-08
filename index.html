@@ -2,47 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <img src="image.jpg" alt="Meri Website ki Photo">
-
-  <title><div style="display: flex; align-items: center; gap: 10px;">
-    <img src="image.jpg" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-    <h1 style="margin: 0;">Aapka Heading Ka Naam</h1>
-  </div>
-    The Lalit International School</title>
+  <title>The Lalit International School</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     body{
       margin:0;
-      font-family: Arial, sans-serif;
-      background:#ff8c1a; /* SAFRON DOMINANT */
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ff9933, #ffffff);
       text-align:center;
     }
 
     header{
-      padding:20px;
-      border-bottom:6px solid #138808; /* GREEN */
+      background:white;
+      padding:20px 10px;
+      border-bottom:6px solid #138808;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo-box{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .logo-box img{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid #138808;
+      background:white;
     }
 
     h1{
+      margin:0;
+      color:#002855;
+      font-size:28px;
+    }
+
+    header p{
       margin:5px 0;
-      color:#002855; /* BLUE */
+      font-weight:500;
+      color:#444;
+    }
+
+    .login-link{
+      display:inline-block;
+      margin-top:10px;
+      color:#138808;
+      font-weight:600;
+      text-decoration:none;
     }
 
     .btn{
       display:block;
       width:280px;
-      margin:10px auto;
+      margin:12px auto;
       padding:14px;
-      background:#138808; /* GREEN */
+      background:#138808;
       color:white;
       text-decoration:none;
-      font-weight:bold;
-      border-radius:6px;
+      font-weight:600;
+      border-radius:8px;
+      transition:0.3s;
     }
 
     .btn:hover{
       background:#0f6f06;
+      transform:scale(1.03);
     }
 
     footer{
@@ -50,21 +83,20 @@
       padding:15px;
       background:#002855;
       color:white;
+      font-size:14px;
     }
   </style>
 </head>
 
 <body>
-<div style="text-align: center; margin-top: 20px;">
-    <h2>Ye Meri Photo Hai</h2>
-    <img src="image.jpg" alt="Mera Image" style="width: 300px; border-radius: 15px; border: 5px solid #333; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
-</div>
-  
-<header><a href="login.html" style="text-decoration: none; color: blue; font-weight: bold;">Login Yahan Karein</a>
-  
-  <!-- Logo yahan lagega baad me -->
-  <h1>The Lalit International School</h1>
+
+<header>
+  <div class="logo-box">
+    <img src="image.jpg" alt="School Logo">
+    <h1>The Lalit International School</h1>
+  </div>
   <p>Online Learning Platform</p>
+  <a href="login.html" class="login-link">🔐 Login Yahan Karein</a>
 </header>
 
 <!-- BUTTONS -->
@@ -78,7 +110,7 @@
 <a class="btn" href="vacancies.html">Vacancies</a>
 <a class="btn" href="results.html">See Results</a>
 <a class="btn" href="payment.html">Submit Payment</a>
-<a class="btn" href="Image.jpg">My Profile</a>
+<a class="btn" href="profile.html">My Profile</a>
 <a class="btn" href="signup-login.html">Sign Up / Login</a>
 
 <footer>
