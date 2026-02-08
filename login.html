@@ -2,34 +2,43 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asli Login Page</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f4f4; margin: 0; }
-        .box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); width: 320px; text-align: center; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; cursor: pointer; border-radius: 6px; font-weight: bold; margin-top: 10px; border: none; }
+        body { font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #eef2f3; margin: 0; }
+        .box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 320px; text-align: center; }
+        h2 { color: #333; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; outline: none; }
+        button { width: 100%; padding: 12px; cursor: pointer; border-radius: 8px; font-weight: bold; margin-top: 10px; border: none; transition: 0.3s; }
         .btn-login { background: #28a745; color: white; }
+        .btn-login:hover { background: #218838; }
         .btn-signup { background: #007bff; color: white; }
-        p { font-size: 14px; color: #666; }
+        .btn-signup:hover { background: #0069d9; }
+        #status { margin-top: 15px; font-size: 13px; font-weight: bold; }
+        .success { color: green; }
+        .error { color: red; }
     </style>
 </head>
 <body>
 
 <div class="box">
-    <h2>Welcome</h2>
-    <input type="email" id="email" placeholder="Email Address">
-    <input type="password" id="pass" placeholder="Password">
+    <img src="image.jpg" alt="Logo" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 2px solid #007bff;">
+    
+    <h2>Welcome Back</h2>
+    <input type="email" id="email" placeholder="Apni Email Daalein">
+    <input type="password" id="pass" placeholder="6+ Digit Password">
     
     <button class="btn-login" onclick="login()">Log In</button>
     <button class="btn-signup" onclick="signup()">Naya Account Banayein</button>
-    <p id="msg"></p>
+    
+    <p id="status"></p>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
 <script>
-  // Aapka Firebase Config jo aapne dhoonda
+  // Aapka Config Code
   const firebaseConfig = {
     apiKey: "AIzaSyCnqD4oBsQP5XGJ4C2GGANrvLeeYB6Syhc",
     authDomain: "github-site-authenticati-905f6.firebaseapp.com",
@@ -40,29 +49,51 @@
     measurementId: "G-K1B6J68BMZ"
   };
 
-  // Firebase Initialize karein
-  firebase.initializeApp(firebaseConfig);
+  // Firebase ko chalu karein
+  if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+  }
   const auth = firebase.auth();
+  const statusPara = document.getElementById('status');
 
-  // SIGN UP function
+  // Naya Account Banane ka Function
   function signup() {
     const email = document.getElementById('email').value;
     const pass = document.getElementById('pass').value;
+
+    statusPara.innerHTML = "Checking...";
+    statusPara.className = "";
+
     auth.createUserWithEmailAndPassword(email, pass)
-      .then(() => alert("Shabash! Account ban gaya. Ab Login dabayein."))
-      .catch(err => alert("Error: " + err.message));
+      .then((userCredential) => {
+        statusPara.innerHTML = "Shabash! Account ban gaya.";
+        statusPara.className = "success";
+        alert("Account Successfully Created!");
+      })
+      .catch((error) => {
+        statusPara.innerHTML = "Error: " + error.message;
+        statusPara.className = "error";
+      });
   }
 
-  // LOGIN function
+  // Login karne ka Function
   function login() {
     const email = document.getElementById('email').value;
     const pass = document.getElementById('pass').value;
+
+    statusPara.innerHTML = "Logging in...";
+    statusPara.className = "";
+
     auth.signInWithEmailAndPassword(email, pass)
-      .then(() => {
-        alert("Login Successful!");
-        window.location.href = "index.html"; // Login ke baad home page par le jayega
+      .then((userCredential) => {
+        statusPara.innerHTML = "Login Sahi Hai! Wait karein...";
+        statusPara.className = "success";
+        window.location.href = "index.html"; 
       })
-      .catch(err => alert("Ghalat Email ya Password!"));
+      .catch((error) => {
+        statusPara.innerHTML = "Ghalat Email ya Password!";
+        statusPara.className = "error";
+      });
   }
 </script>
 
